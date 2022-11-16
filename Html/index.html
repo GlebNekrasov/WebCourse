@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Подбор авто в Новосибирске</title>
+</head>
+<body>
+    <h1>Быстрый подбор авто в Новосибирске</h1>
+    <h2>Как мы работаем?</h2>
+    <p>
+        Всем известно, что клиент счастлив только тогда, когда все его пожелания учтены.
+        Поэтому мы уделяем особое внимание сбору полной информации об автомобиле вашей мечты.
+        И только после этого мы начинаем предлагать вам варианты.
+        Благодаря тому, что у нас много клиентов, в нашей базе уже есть большое количество авто, которые мы проверили.
+        Именно это позволяет нам быстро предложить вам варианты в первый же день после получения заявки.</p>
+    <h2>Заявка на подбор автомобиля</h2>
+    <p>
+        Заполните заявку и мы свяжемся с Вами в течение часа после ее получения.
+    </p>
+    <form action="/order.php" method="post">
+        <div>
+            <h3>Ваши контактные данные</h3>
+            <p>
+                <label for="clientName">Ваше имя</label>
+                <input type="text" id="clientName" name="clientName"/>
+            </p>
+            <p>
+                <label for="clientPhone">Ваш телефон</label>
+                <input type="text" placeholder="913-000-00-00" id="clientPhone" name="clientPhone"/>
+            </p>
+        </div>
+        <div>
+            <h3>Параметры автомобиля, который Вы ищете</h3>
+            <p>
+                <label for="carModel">Марка и модель авто</label>
+                <input type="text" placeholder="Toyota Camry" id="carModel" name="carModel"/>
+            </p>
+            <p>
+                <label for="carYearFrom">Год выпуска авто от</label>
+                <select size="1" id="carYearFrom" name="carYearFrom">
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                    <option value="2015">2015</option>
+                    <option value="2014">2014</option>
+                    <option value="2013">2013</option>
+                    <option value="2012">2012</option>
+                    <option value="2011">2011</option>
+                    <option value="2010">2010</option>
+                    <option value="2009">2009</option>
+                    <option value="2008">2008</option>
+                    <option value="2007">2007</option>
+                    <option value="2006">2006</option>
+                    <option value="2005">2005</option>
+                    <option value="2004">2004</option>
+                    <option value="2003">2003</option>
+                    <option value="2002">2002</option>
+                    <option value="2001">2001</option>
+                    <option value="2000">2000</option>
+                </select>
+                <label for="carYearTo">Год выпуска авто до</label>
+                <select size="1" id="carYearTo" name="carYearTo">
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                    <option value="2015">2015</option>
+                    <option value="2014">2014</option>
+                    <option value="2013">2013</option>
+                    <option value="2012">2012</option>
+                    <option value="2011">2011</option>
+                    <option value="2010">2010</option>
+                    <option value="2009">2009</option>
+                    <option value="2008">2008</option>
+                    <option value="2007">2007</option>
+                    <option value="2006">2006</option>
+                    <option value="2005">2005</option>
+                    <option value="2004">2004</option>
+                    <option value="2003">2003</option>
+                    <option value="2002">2002</option>
+                    <option value="2001">2001</option>
+                    <option value="2000">2000</option>
+                </select>
+            </p>
+            <p>
+                <label for="carTransmission">Коробка передач</label>
+                <select size="4" multiple id="carTransmission" name="carTransmission">
+                    <option value="automatic">АКПП</option>
+                    <option value="mechanic">МКПП</option>
+                    <option value="robotic">Робот</option>
+                    <option value="variator">Вариатор</option>
+                </select>
+            </p>
+            <p>
+                <label for="comments">Дополнительные пожелания</label>
+                <textarea cols="30" rows="5" maxlength="1000" id="comments" name="comments"></textarea>
+            </p>
+            <p>
+                <label for="isNotUsedInRF">Без пробега по РФ</label>
+                <input type="checkbox" id="isNotUsedInRF" name="isNotUsedInRF"/>
+            </p>
+            <p>
+                <label>
+                    Руль
+                    <input checked="checked" type="radio" value="any" name="wheel">Любой
+                    <input type="radio" value="left" name="wheel">Левый
+                    <input type="radio" value="right" name="wheel">Правый
+                </label>
+
+            </p>
+        </div>
+        <button type="submit">Отправить заявку</button>
+    </form>
+    <p>
+        <a href="history.html">История нашей компании</a>
+    </p>
+    <p>
+        Остались вопросы? Звоните:
+        <a href="tel:+79131001010">(913)-100-10-10</a>
+    </p>
+</body>
+</html>
