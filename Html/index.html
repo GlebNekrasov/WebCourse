@@ -21,23 +21,23 @@
         <div>
             <h3>Ваши контактные данные</h3>
             <p>
-                <label for="clientName">Ваше имя</label>
-                <input type="text" id="clientName" name="clientName"/>
+                <label for="client-name">Ваше имя</label>
+                <input type="text" id="client-name" name="client-name"/>
             </p>
             <p>
-                <label for="clientPhone">Ваш телефон</label>
-                <input type="text" placeholder="913-000-00-00" id="clientPhone" name="clientPhone"/>
+                <label for="client-phone">Ваш телефон</label>
+                <input type="text" placeholder="913-000-00-00" id="client-phone" name="client-phone"/>
             </p>
         </div>
         <div>
             <h3>Параметры автомобиля, который Вы ищете</h3>
             <p>
-                <label for="carModel">Марка и модель авто</label>
-                <input type="text" placeholder="Toyota Camry" id="carModel" name="carModel"/>
+                <label for="car-model">Марка и модель авто</label>
+                <input type="text" placeholder="Toyota Camry" id="car-model" name="car-model"/>
             </p>
             <p>
-                <label for="carYearFrom">Год выпуска авто от</label>
-                <select size="1" id="carYearFrom" name="carYearFrom">
+                <label for="car-year-from">Год выпуска авто от</label>
+                <select size="1" id="car-year-from" name="car-year-from">
                     <option value="2022">2022</option>
                     <option value="2021">2021</option>
                     <option value="2020">2020</option>
@@ -62,8 +62,8 @@
                     <option value="2001">2001</option>
                     <option value="2000">2000</option>
                 </select>
-                <label for="carYearTo">Год выпуска авто до</label>
-                <select size="1" id="carYearTo" name="carYearTo">
+                <label for="car-year-to">Год выпуска авто до</label>
+                <select size="1" id="car-year-to" name="car-year-to">
                     <option value="2022">2022</option>
                     <option value="2021">2021</option>
                     <option value="2020">2020</option>
@@ -90,8 +90,8 @@
                 </select>
             </p>
             <p>
-                <label for="carTransmission">Коробка передач</label>
-                <select size="4" multiple id="carTransmission" name="carTransmission">
+                <label for="car-transmission">Коробка передач</label>
+                <select size="4" multiple id="car-transmission" name="car-transmission">
                     <option value="automatic">АКПП</option>
                     <option value="mechanic">МКПП</option>
                     <option value="robotic">Робот</option>
@@ -103,17 +103,20 @@
                 <textarea cols="30" rows="5" maxlength="1000" id="comments" name="comments"></textarea>
             </p>
             <p>
-                <label for="isNotUsedInRF">Без пробега по РФ</label>
-                <input type="checkbox" id="isNotUsedInRF" name="isNotUsedInRF"/>
+                <label for="is-not-used-in-rf">Без пробега по РФ</label>
+                <input type="checkbox" id="is-not-used-in-rf" name="is-not-used-in-rf"/>
             </p>
             <p>
+                Руль
                 <label>
-                    Руль
                     <input checked="checked" type="radio" value="any" name="wheel">Любой
+                </label>
+                <label>
                     <input type="radio" value="left" name="wheel">Левый
+                </label>
+                <label>
                     <input type="radio" value="right" name="wheel">Правый
                 </label>
-
             </p>
         </div>
         <button type="submit">Отправить заявку</button>
