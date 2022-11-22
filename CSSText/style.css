@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+
+div.course {
+    max-width: 850px;
+    padding-left: 11px;
+    padding-right: 13px;
+    background: #FEEED6;
+    font-family: Arial, serif;
+    font-weight: normal;
+    font-size: 19px;
+    color: #676565;
+}
+
+.course h1 {
+    padding-top: 8px;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 1.05;
+    margin-bottom: 15px;
+}
+
+.course span[header="smallHeader"] {
+    font-weight: bold;
+    color: #378DB2;
+}
+
+.course span[price="oldPrice"] {
+    text-decoration: line-through;
+}
+
+.course p[content="conditions"] {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.course p[content="description"] {
+    font-size: 17px;
+    text-indent: 20px;
+    text-align: justify;
+    line-height: 1.4;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
