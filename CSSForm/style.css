@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+}
+
+h1.order-form {
+    padding-left: 20px;
+    font-family: Arial, serif;
+    font-weight: normal;
+    font-size: 34px;
+    color: #676565;
+    line-height: 0;
+}
+
+form.order-form {
+    max-width: 845px;
+    width: 100%;
+    background: #FEEED6;
+    padding-top: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 16px;
+    font-family: Arial, serif;
+    font-weight: bold;
+    font-size: 16px;
+    color: #676565;
+}
+
+.order-form input {
+    max-width: 845px;
+    width: 100%;
+    border: 0;
+    padding: 10px 14px;
+    margin: 0;
+}
+
+.order-form textarea {
+    max-width: 845px;
+    width: 100%;
+    border: 0;
+    padding: 10px 14px;
+}
+
+.order-form button {
+    background: #378DB2;
+    color: #FFFFFF;
+    border: 0;
+    font-weight: bold;
+    padding: 10px 14px;
+}
+
+.order-form p[element="header"] {
+    line-height: 0;
+}
+
+.order-form p[element="input-field"] {
+    line-height: 0;
+    padding-bottom: 14px;
+}
+
+.order-form p[element="text"] {
+    line-height: 0;
+    padding-bottom: 6px;
+    font-weight: normal;
+    color: #737373;
+}
+
+.order-form p[element="button"] {
+    text-align: right;
+    margin: 0;
+}
+
+.in-put::placeholder {
+    color: #999999;
+}

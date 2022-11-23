@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="normalize.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta charset="UTF-8">
+    <title>Форма заявки</title>
+</head>
+<body>
+    <h1 class="order-form">Отправить заявку</h1>
+    <form class="order-form" action="/order.php" method="post">
+        <p element="header">
+            <label for="client-name">Ваше имя</label>
+        </p>
+        <p element="input-field">
+            <input class="in-put" type="text" placeholder="Ваше имя *" id="client-name" name="client-name"/>
+        </p>
+        <p element="header">
+            <label for="client-phone">Ваш номер телефона</label>
+        </p>
+        <p element="input-field">
+            <input class="in-put" type="text" placeholder="Ваш номер телефона *" id="client-phone" name="client-phone"/>
+        </p>
+        <p element="header">
+            <label for="client-email-VK">Ваш email или VK</label>
+        </p>
+        <p element="input-field">
+            <input class="in-put" type="text" placeholder="Ваш email или VK *" id="client-email-VK" name="client-email-VK"/>
+        </p>
+        <p element="header">
+            <label for="comments">Комментарий</label>
+        </p>
+        <p element="input-field">
+            <textarea class="in-put" cols="30" rows="6" placeholder="Комментарий (не обязательно)" id="comments" name="comments"></textarea>
+        </p>
+        <p element="text">
+            Заполните и отправьте форму, и мы перезвоним Вам по указанному номеру
+        </p>
+        <p element="button"><button type="submit">Отправить заявку</button></p>
+    </form>
+</body>
+</html>
