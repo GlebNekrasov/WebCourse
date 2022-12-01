@@ -7,7 +7,7 @@ div.course {
     padding-left: 11px;
     padding-right: 13px;
     background: #FEEED6;
-    font-family: Arial, serif;
+    font-family: Arial, sans-serif;
     font-weight: normal;
     font-size: 19px;
     color: #676565;
@@ -21,25 +21,33 @@ div.course {
     margin-bottom: 15px;
 }
 
-.course span[header="smallHeader"] {
+.course .small-header {
     font-weight: bold;
     color: #378DB2;
 }
 
-.course span[price="oldPrice"] {
+.course .old-price {
     text-decoration: line-through;
 }
 
-.course p[content="conditions"] {
+.course .conditions {
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-.course p[content="description"] {
+.course .conditions.multi-paragraph {
+    margin-top: 16px;
+}
+
+.course .description {
     font-size: 17px;
     text-indent: 20px;
     text-align: justify;
     line-height: 1.4;
     margin-top: 12px;
     margin-bottom: 12px;
+}
+
+.course .conditions:last-of-type {
+    padding-top: 50px;
 }
