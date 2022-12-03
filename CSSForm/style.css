@@ -2,73 +2,80 @@
     box-sizing: border-box;
 }
 
-h1.order-form {
-    padding-left: 20px;
-    font-family: Arial, serif;
+.order-form {
+    max-width: 845px;
+}
+
+div.main-header {
+    margin: 0 auto;
+}
+
+.order-form h1 {
+    padding: 0 20px;
+    margin: 3px;
+    font-family: Arial, sans-serif;
     font-weight: normal;
     font-size: 34px;
     color: #676565;
-    line-height: 0;
 }
 
 form.order-form {
-    max-width: 845px;
     width: 100%;
     background: #FEEED6;
-    padding-top: 12px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 16px;
-    font-family: Arial, serif;
+    margin: 0 auto;
+    padding: 20px 20px 16px;
+    font-family: Arial, sans-serif;
     font-weight: bold;
     font-size: 16px;
     color: #676565;
 }
 
-.order-form input {
-    max-width: 845px;
+.order-form div {
+    padding-bottom: 22px;
+}
+
+.order-form .input-field {
     width: 100%;
     border: 0;
     padding: 10px 14px;
-    margin: 0;
+    margin-top: 6px;
 }
 
 .order-form textarea {
-    max-width: 845px;
-    width: 100%;
-    border: 0;
-    padding: 10px 14px;
+    display: block;
+    resize: vertical;
+}
+
+.order-form .text-div {
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.order-form .button-descrtption {
+    font-weight: normal;
+    color: #737373;
+    white-space: pre-line;
 }
 
 .order-form button {
     background: #378DB2;
-    color: #FFFFFF;
+    color: #FFF;
     border: 0;
     font-weight: bold;
     padding: 10px 14px;
+    cursor: pointer;
 }
 
-.order-form p[element="header"] {
-    line-height: 0;
+.order-form button:hover {
+    background: #32728d;
 }
 
-.order-form p[element="input-field"] {
-    line-height: 0;
-    padding-bottom: 14px;
-}
-
-.order-form p[element="text"] {
-    line-height: 0;
-    padding-bottom: 6px;
-    font-weight: normal;
-    color: #737373;
-}
-
-.order-form p[element="button"] {
+.order-form .button-div {
     text-align: right;
     margin: 0;
+    padding: 0;
 }
 
-.in-put::placeholder {
-    color: #999999;
+.input::placeholder {
+    color: #999;
 }

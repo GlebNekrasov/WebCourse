@@ -1,42 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <link rel="stylesheet" type="text/css" href="normalize.css" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
     <meta charset="UTF-8">
     <title>Форма заявки</title>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 class="order-form">Отправить заявку</h1>
+    <div class="order-form main-header">
+        <h1>Отправить заявку</h1>
+    </div>
     <form class="order-form" action="/order.php" method="post">
-        <p element="header">
+        <div>
             <label for="client-name">Ваше имя</label>
-        </p>
-        <p element="input-field">
-            <input class="in-put" type="text" placeholder="Ваше имя *" id="client-name" name="client-name"/>
-        </p>
-        <p element="header">
+            <input class="input-field" type="text" placeholder="Ваше имя *" id="client-name" name="client-name">
+        </div>
+        <div>
             <label for="client-phone">Ваш номер телефона</label>
-        </p>
-        <p element="input-field">
-            <input class="in-put" type="text" placeholder="Ваш номер телефона *" id="client-phone" name="client-phone"/>
-        </p>
-        <p element="header">
+            <input class="input-field" type="text" placeholder="Ваш номер телефона *" id="client-phone" name="client-phone">
+        </div>
+        <div>
             <label for="client-email-VK">Ваш email или VK</label>
-        </p>
-        <p element="input-field">
-            <input class="in-put" type="text" placeholder="Ваш email или VK *" id="client-email-VK" name="client-email-VK"/>
-        </p>
-        <p element="header">
+            <input class="input-field" type="text" placeholder="Ваш email или VK *" id="client-email-VK" name="client-email-VK">
+        </div>
+        <div>
             <label for="comments">Комментарий</label>
-        </p>
-        <p element="input-field">
-            <textarea class="in-put" cols="30" rows="6" placeholder="Комментарий (не обязательно)" id="comments" name="comments"></textarea>
-        </p>
-        <p element="text">
-            Заполните и отправьте форму, и мы перезвоним Вам по указанному номеру
-        </p>
-        <p element="button"><button type="submit">Отправить заявку</button></p>
+            <textarea class="input-field" rows="6" placeholder="Комментарий (не обязательно)" id="comments" name="comments"></textarea>
+        </div>
+        <div class="text-div">
+            <span class="button-descrtption">Заполните и отправьте форму, и мы перезвоним Вам по указанному номеру</span>
+        </div>
+        <div class="button-div">
+            <button class="button" type="submit">Отправить заявку</button>
+        </div>
     </form>
 </body>
 </html>
