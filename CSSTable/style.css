@@ -13,7 +13,8 @@ table.employees {
     border-collapse: collapse;
 }
 
-.employees th, td {
+.employees th,
+.employees td {
     border: 1px solid #CCC;
     padding: 11px;
 }
