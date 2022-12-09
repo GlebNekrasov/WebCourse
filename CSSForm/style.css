@@ -46,12 +46,12 @@ form.order-form {
     resize: vertical;
 }
 
-.order-form .text-div {
+.order-form .text-container {
     padding: 0;
     margin-bottom: 10px;
 }
 
-.order-form .button-descrtption {
+.order-form .button-description {
     font-weight: normal;
     color: #737373;
     white-space: pre-line;
@@ -70,7 +70,7 @@ form.order-form {
     background: #32728d;
 }
 
-.order-form .button-div {
+.order-form .button-container {
     text-align: right;
     margin: 0;
     padding: 0;
