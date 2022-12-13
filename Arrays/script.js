@@ -12,23 +12,21 @@
     console.log(array1.join(", "));
 
     var array2 = array1.slice(0, 5);
-    var array3 = array1.slice(array1.length - 5, array1.length);
+    var array3 = array1.slice(array1.length - 5);
 
     console.log("Подмассив из первых 5 элементов исходного массива, отсортированного по убыванию:");
     console.log(array2.join(", "));
     console.log("Подмассив из последних 5 элементов исходного массива, отсортированного по убыванию:");
     console.log(array3.join(", "));
 
-    function calculateEvenNumbersSum(accumulator, item) {
+    console.log("Сумма четных чисел массива равна:");
+    console.log(array1.reduce(function (sum, item) {
         if (item % 2 === 0) {
-            return accumulator + item;
+            return sum + item;
         }
 
-        return accumulator;
-    }
-
-    console.log("Сумма четных чисел массива равна:");
-    console.log(array1.reduce(calculateEvenNumbersSum, 0));
+        return sum;
+    }, 0));
 
     var array4 = [];
 
@@ -39,14 +37,11 @@
     console.log("Создан массив чисел от 1 до 100:");
     console.log(array4);
 
-    function calculateEvenNumbersSquareSum(accumulator, item) {
-        if (item % 2 === 0) {
-            return accumulator + item * item;
-        }
+    var array5 = array4.filter(function (item) {
+        return item % 2 === 0;
+        }).map(function (item) {
+            return item * item;
+    });
 
-        return accumulator;
-    }
-
-    console.log("Сумма квадратов четных чисел массива равна:");
-    console.log(array4.reduce(calculateEvenNumbersSquareSum, 0));
+    console.log("Список квадратов четных чисел массива: " + array5.join(", "));
 })();
