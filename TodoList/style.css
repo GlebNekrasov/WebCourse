@@ -1,0 +1,37 @@
+* {
+    box-sizing: border-box;
+}
+
+body > * {
+    font-family: sans-serif;
+    font-size: 15px;
+    padding-left: 10px;
+}
+
+.bigHeader {
+    font-size: 20px;
+}
+
+.tasks-form > * {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.error {
+    display: none;
+    color: #df370b;
+    font-weight: bold;
+}
+
+.invalid-field {
+    border-color: #df370b;
+    border-width: 3px;
+}
+
+.tasks-list {
+    margin-left: 15px;
+}
+
+.task {
+    margin-bottom: 10px;
+}

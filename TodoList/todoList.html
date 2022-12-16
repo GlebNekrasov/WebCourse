@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список дел</title>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <h1 class="bigHeader">Список дел</h1>
+    <form class="tasks-form">
+        <label for="new-task">Введите новую задачу:</label>
+        <div>
+            <input type="text" id="new-task" name="new-task">
+            <div class="error">Нужно заполнить поле!</div>
+        </div>
+        <div class="add-button">
+            <button type="submit">Добавить задачу в список дел</button>
+        </div>
+    </form>
+    <ul class="tasks-list"></ul>
+</body>
+</html>
