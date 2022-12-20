@@ -2,19 +2,20 @@
     box-sizing: border-box;
 }
 
-body > * {
+body {
     font-family: sans-serif;
     font-size: 15px;
-    padding-left: 10px;
 }
 
-.bigHeader {
+.big-header {
     font-size: 20px;
+    padding-left: 10px;
 }
 
 .temperature-form > * {
     display: inline-block;
     vertical-align: top;
+    padding-left: 10px;
 }
 
 .error {
@@ -31,4 +32,8 @@ body > * {
 .temperature-value {
     color: #32cd32;
     font-weight: bold;
+}
+
+.output-container {
+    padding-left: 10px;
 }
