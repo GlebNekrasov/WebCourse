@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
             outputNode.remove();
         }
 
-        var celsiusTemperature = parseFloat(temperatureInputField.value);
+        var celsiusTemperature = Number(temperatureInputField.value);
 
         if (isNaN(celsiusTemperature)) {
             temperatureInputField.classList.add("invalid-field");
@@ -22,9 +22,9 @@ document.addEventListener("DOMContentLoaded", function () {
             temperatureInputField.value = "";
             errorMessage.style.display = "none";
 
-            var outputDiv = document.createElement("div");
-            outputDiv.classList.add("output-container");
-            document.body.appendChild(outputDiv);
+            var outputTemperature = document.createElement("div");
+            outputTemperature.classList.add("output-container");
+            document.body.appendChild(outputTemperature);
 
             function addConvertedTemperature (scaleDescription, temperature) {
                 var temperatureValue = document.createElement("span");
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 var temperatureParagraph = document.createElement("p");
                 temperatureParagraph.textContent = scaleDescription;
-                outputDiv.appendChild(temperatureParagraph);
+                outputTemperature.appendChild(temperatureParagraph);
                 temperatureParagraph.appendChild(temperatureValue);
             }
 
