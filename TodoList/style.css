@@ -8,13 +8,14 @@ body > * {
     padding-left: 10px;
 }
 
-.bigHeader {
+.big-header {
     font-size: 20px;
 }
 
 .tasks-form > * {
     display: inline-block;
     vertical-align: top;
+    padding-bottom: 10px;
 }
 
 .error {
