@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+}
+
+.main-container {
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    width: 100vw;
+    justify-content: space-around;
+    align-items: normal;
+    flex-wrap: wrap-reverse;
+}
+
+.main-container-item {
+    flex-grow: 1;
+    text-align: left;
+    font-family: "Neo Sans Cyr", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 19px;
+    padding: 8px;
+}
+
+table.contacts {
+    max-width: 1000px;
+    width: 100%;
+    font-family: Calibri, sans-serif;
+    font-weight: normal;
+    font-size: 20px;
+    text-align: left;
+    border-spacing: 0;
+    border-collapse: collapse;
+    word-break: break-word;
+}
+
+.contacts th,
+.contacts td {
+    border: 1px solid #CCC;
+    padding: 11px;
+}
+
+.contacts th {
+    background: #3498DB;
+    color: #FFF;
+    font-weight: normal;
+}
+
+.contacts tr:nth-child(odd) {
+    background: #EEE;
+}
+
+.contacts button {
+    background-color: #fffaf0;
+}
+
+.width-center {
+    text-align: center;
+}
+
+.add-contact div {
+    max-width: 400px;
+    padding-bottom: 10px;
+    text-align: right;
+}
+
+.error {
+    color: #df370b;
+    font-weight: bold;
+}
+
+.invalid-field {
+    border-color: #df370b;
+    border-width: 3px;
+}
