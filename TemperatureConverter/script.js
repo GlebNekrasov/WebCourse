@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         var celsiusTemperature = Number(temperatureInputField.value);
 
-        if (isNaN(celsiusTemperature)) {
+        if (isNaN(celsiusTemperature) || temperatureInputField.value === "") {
             temperatureInputField.classList.add("invalid-field");
             errorMessage.style.display = "block";
         } else {
