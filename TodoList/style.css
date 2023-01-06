@@ -2,10 +2,13 @@
     box-sizing: border-box;
 }
 
-body > * {
-    font-family: sans-serif;
+body {
+    font-family: Tahoma, sans-serif;
     font-size: 15px;
-    padding-left: 10px;
+}
+
+.main-container {
+    padding: 0 10px;
 }
 
 .big-header {
@@ -30,9 +33,10 @@ body > * {
 }
 
 .tasks-list {
-    margin-left: 15px;
+    padding: 0 15px;
 }
 
 .task {
     margin-bottom: 10px;
+    word-break: break-word;
 }
