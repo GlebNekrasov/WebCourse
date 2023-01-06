@@ -5,20 +5,12 @@
         });
     }
 
-    function getFirst5Elements(numbersArray) {
-        if (numbersArray.length >= 5) {
-            return numbersArray.slice(0, 5);
-        }
-
-        return numbersArray;
+    function getFirst5Elements(array) {
+        return array.slice(0, 5);
     }
 
-    function getLast5Elements(numbersArray) {
-        if (numbersArray.length >= 5) {
-            return numbersArray.slice(length - 5);
-        }
-
-        return numbersArray;
+    function getLast5Elements(array) {
+        return array.slice(array.length - 5);
     }
 
     function getEvenNumbersSum(numbersArray) {
