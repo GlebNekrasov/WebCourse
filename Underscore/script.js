@@ -28,9 +28,7 @@
             .filter(function (people) {
                 return people.age >= 20 && people.age <= 30;
             })
-            .sortBy(function (people) {
-                return people.age;
-            })
+            .sortBy("age")
             .value();
     }
 
@@ -47,9 +45,7 @@
     }
 
     function getNamesPeopleCount(people) {
-        return _.chain(people)
-            .countBy("name")
-            .value()
+        return _.countBy(people, "name");
     }
 
     console.log("Список людей:", people);
