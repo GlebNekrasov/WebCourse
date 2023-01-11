@@ -2,35 +2,49 @@ $(document).ready(function () {
     var surnameField = $("#surname");
     var nameField = $("#name");
     var phoneField = $("#phone");
-    var surnameLabelText = '"' + $("[for='surname']").text() + '"';
-    var nameLabelText = '"' + $("[for='name']").text() + '"';
-    var phoneLabelText = '"' + $("[for='phone']").text() + '"';
-    var emptyFields = [];
-    var errorField = $(".error");
+    var phones = [];
+    var errorSurnameBlock = $("[for='surname']").next().next();
+    var errorNameBlock = $("[for='name']").next().next();
+    var errorPhoneBlock = $("[for='phone']").next().next();
+    var isError = false;
     var lastRowNumber = 0;
 
-    $(".add-button").on("click", function (e) {
+    $(".add-button").click(function (e) {
         e.preventDefault();
 
-        errorField.text("");
+        errorSurnameBlock.text("");
+        errorNameBlock.text("");
+        errorPhoneBlock.text("");
         $(".invalid-field").removeClass("invalid-field");
 
-        var newSurname = surnameField.val();
-        var newName = nameField.val();
-        var newPhone = phoneField.val();
+        var surname = surnameField.val().trim();
+        var name = nameField.val().trim();
+        var phone = phoneField.val().trim();
 
-        function addErrorData (errorText, invalidField) {
-            emptyFields.push(errorText);
+        function addErrorData(errorBlock, invalidField) {
+            errorBlock.text("Необходимо заполнить поле");
             invalidField.addClass("invalid-field");
+            isError = true;
         }
 
-        newSurname.length === 0 ? addErrorData(surnameLabelText, surnameField) : false;
-        newName.length === 0 ? addErrorData(nameLabelText, nameField) : false;
-        newPhone.length === 0 ? addErrorData(phoneLabelText, phoneField) : false;
+        if (surname.length === 0) {
+            addErrorData(errorSurnameBlock, surnameField);
+        }
 
-        if (emptyFields.length > 0) {
-            errorField.text("Необходимо заполнить поле " + emptyFields.join(", "));
-            emptyFields = [];
+        if (name.length === 0) {
+            addErrorData(errorNameBlock, nameField);
+        }
+
+        if (phone.length === 0) {
+            addErrorData(errorPhoneBlock, phoneField);
+        } else if ($.inArray(phone, phones) !== -1) {
+            errorPhoneBlock.text("Контакт с таким номером уже существует");
+            phoneField.addClass("invalid-field");
+            isError = true;
+        }
+
+        if (isError) {
+            isError = false;
             return;
         }
 
@@ -40,47 +54,51 @@ $(document).ready(function () {
 
         ++lastRowNumber;
 
+        phones.push(phone);
+
         var currentRowNumber = lastRowNumber;
-        var newIdCell = $("<td class='width-center id-number'></td>").text(currentRowNumber);
-        var newSurnameCell = $("<td></td>").text(newSurname);
-        var newNameCell = $("<td></td>").text(newName);
-        var newPhoneCell = $("<td></td>").text(newPhone);
-        var newButtonCell = $("<td class='width-center'></td>");
-        var newDeleteButton = $("<button class='delete-button' type='submit'>Удалить</button>");
+        var numberCell = $("<td class='width-center row-number'></td>").text(currentRowNumber);
+        var surnameCell = $("<td></td>").text(surname);
+        var nameCell = $("<td></td>").text(name);
+        var phoneCell = $("<td></td>").text(phone);
+        var buttonCell = $("<td class='width-center'></td>");
+        var deleteButton = $("<button class='delete-button' type='submit'>Удалить</button>");
 
-        newIdCell.attr('id', currentRowNumber);
+        numberCell.prop("id", currentRowNumber);
 
-        newButtonCell.append(newDeleteButton);
+        buttonCell.append(deleteButton);
 
-        var newRow = $("<tr></tr>");
+        var row = $("<tr></tr>");
 
-        $("#table-content").append(newRow);
+        $("#table-content").append(row);
 
-        newRow
-            .append(newIdCell)
-            .append(newSurnameCell)
-            .append(newNameCell)
-            .append(newPhoneCell)
-            .append(newButtonCell);
+        row
+            .append(numberCell)
+            .append(surnameCell)
+            .append(nameCell)
+            .append(phoneCell)
+            .append(buttonCell);
 
-        newDeleteButton.on("click", function (e) {
-            var deletedRowNumber = Number(newIdCell.text());
+        deleteButton.click(function (e) {
+            var deletedRowNumber = Number(numberCell.text());
 
-            newRow.remove();
+            row.remove();
 
             e.stopImmediatePropagation();
+
+            phones = $.grep(phones, function (existingPhone) {
+                return existingPhone !== phone;
+            })
 
             if (deletedRowNumber === lastRowNumber) {
                 --lastRowNumber;
                 return;
             }
 
-            var i = deletedRowNumber + 1;
-
-            for (i; i <= lastRowNumber; ++i) {
-                var currentIdCell = $('#' + i);
-                currentIdCell.text(i - 1);
-                currentIdCell.attr('id', i - 1);
+            for (var i = deletedRowNumber + 1; i <= lastRowNumber; ++i) {
+                var currentNumberCell = $("#" + i);
+                currentNumberCell.text(i - 1);
+                currentNumberCell.prop("id", i - 1);
             }
 
             --lastRowNumber;

@@ -27,21 +27,23 @@
         <div class="main-container-item">
             <form class="add-contact">
                 <div>
-                    <label for="surname">Фамилия</label>
+                    <label class="contact-label" for="surname">Фамилия</label>
                     <input class="input-field" type="text" placeholder="Иванов" id="surname" name="surname">
+                    <div class="error-message"></div>
                 </div>
                 <div>
-                    <label for="name">Имя</label>
+                    <label class="contact-label" for="name">Имя</label>
                     <input class="input-field" type="text" placeholder="Иван" id="name" name="name">
+                    <div class="error-message"></div>
                 </div>
                 <div>
-                    <label for="phone">Номер телефона</label>
+                    <label class="contact-label" for="phone">Номер телефона</label>
                     <input class="input-field" type="text" placeholder="89131234567" id="phone" name="phone">
+                    <div class="error-message"></div>
                 </div>
                 <div>
                     <button class="add-button" type="submit">Добавить контакт</button>
                 </div>
-                <div class="error"></div>
             </form>
         </div>
     </div>

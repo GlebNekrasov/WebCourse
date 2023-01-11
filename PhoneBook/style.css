@@ -19,6 +19,7 @@
     font-style: normal;
     font-size: 19px;
     padding: 8px;
+    overflow: auto;
 }
 
 table.contacts {
@@ -30,23 +31,22 @@ table.contacts {
     text-align: left;
     border-spacing: 0;
     border-collapse: collapse;
-    word-break: break-word;
 }
 
 .contacts th,
 .contacts td {
-    border: 1px solid #CCC;
+    border: 1px solid #ccc;
     padding: 11px;
 }
 
 .contacts th {
-    background: #3498DB;
-    color: #FFF;
+    background: #3498db;
+    color: #fff;
     font-weight: normal;
 }
 
 .contacts tr:nth-child(odd) {
-    background: #EEE;
+    background: #eee;
 }
 
 .contacts button {
@@ -60,12 +60,17 @@ table.contacts {
 .add-contact div {
     max-width: 400px;
     padding-bottom: 10px;
-    text-align: right;
+    text-align: left;
 }
 
-.error {
+.contact-label {
+    display: block;
+}
+
+.error-message {
     color: #df370b;
     font-weight: bold;
+    font-size: 16px;
 }
 
 .invalid-field {
