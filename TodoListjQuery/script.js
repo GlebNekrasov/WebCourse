@@ -3,19 +3,19 @@ $(document).ready(function () {
     var errorMessage = $(".error");
     var tasksList = $(".tasks-list");
 
-    $(".add-button").on("click", function (e) {
+    $(".add-button").click(function (e) {
         e.preventDefault();
 
         var newTaskText = newTaskField.val().trim();
 
         if (newTaskText.length === 0) {
             newTaskField.addClass("invalid-field");
-            errorMessage.css("display", "block");
+            errorMessage.show();
             return;
         }
 
         newTaskField.removeClass("invalid-field");
-        errorMessage.css("display", "none");
+        errorMessage.hide();
         newTaskField.val("");
 
         var newTask = $("<li></li>");
@@ -30,11 +30,11 @@ $(document).ready(function () {
 
             newTask.children(":first").text(newTaskText);
 
-            newTask.find(".delete-button").on("click", function () {
+            newTask.find(".delete-button").click(function () {
                 newTask.remove();
             });
 
-            newTask.find(".edit-button").on("click", function () {
+            newTask.find(".edit-button").click(function () {
                 setEditMode();
             });
         }
@@ -48,15 +48,15 @@ $(document).ready(function () {
             var editTaskField = newTask.find(".edit-task");
             editTaskField.val(newTaskText);
 
-            newTask.find(".cancel-button").on("click", function () {
+            newTask.find(".cancel-button").click(function () {
                 setViewMode();
             });
 
-            newTask.find(".save-button").on("click", function () {
+            newTask.find(".save-button").click(function () {
                 var editedTaskText = editTaskField.val().trim();
 
                 if (editedTaskText.length === 0) {
-                    newTask.find(".error").css("display", "block");
+                    newTask.find(".error").show();
                     editTaskField.addClass("invalid-field");
                     return;
                 }
