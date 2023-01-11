@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
             outputTemperature.classList.add("output-container");
             document.body.appendChild(outputTemperature);
 
-            function addConvertedTemperature (scaleDescription, temperature) {
+            function addConvertedTemperature(scaleDescription, temperature) {
                 var temperatureValue = document.createElement("span");
                 temperatureValue.textContent = temperature.toString();
                 temperatureValue.classList.add("temperature-value");
