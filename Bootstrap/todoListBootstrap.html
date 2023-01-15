@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <script defer src="node_modules/jquery/dist/jquery.js"></script>
+  <script defer src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  <script defer src="script.js"></script>
+  <title>Список дел</title>
+</head>
+<body class="px-2 py-2">
+<div class="container">
+  <h1 class="fs-3 mb-4">Список дел</h1>
+  <form class="fs-6 mb-4" >
+    <div class="mb-2">
+      <label for="new-task" class="form-label">Введите новую задачу:</label>
+      <input type="text" class="form-control" id="new-task" name="new-task">
+      <div class="error">
+        Нужно заполнить поле!
+      </div>
+    </div>
+    <div class="add-button">
+      <button type="submit" class="btn btn-primary">Добавить задачу в список дел</button>
+    </div>
+  </form>
+  <ul class="tasks-list list-group list-group-numbered px-0 fs-6"></ul>
+</div>
+</body>
+</html>
