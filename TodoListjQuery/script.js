@@ -41,9 +41,9 @@ $(document).ready(function () {
 
         function setEditMode() {
             newTask.html("<input class='edit-task' type='text'>\
-                    <button class='save-button' type='button'>Сохранить</button>\
-                    <button class='cancel-button' type='button'>Отменить</button>\
-                    <div class='error'>Нужно заполнить поле!</div>");
+                <button class='save-button' type='button'>Сохранить</button>\
+                <button class='cancel-button' type='button'>Отменить</button>\
+                <div class='error'>Нужно заполнить поле!</div>");
 
             var editTaskField = newTask.find(".edit-task");
             editTaskField.val(newTaskText);
@@ -68,4 +68,4 @@ $(document).ready(function () {
 
         setViewMode();
     });
-})
+});
