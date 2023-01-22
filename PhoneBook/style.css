@@ -45,6 +45,10 @@ table.contacts {
     font-weight: normal;
 }
 
+th.button-column {
+    width: 50px;
+}
+
 .contacts tr:nth-child(odd) {
     background: #eee;
 }

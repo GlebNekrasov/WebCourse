@@ -1,13 +1,12 @@
 $(document).ready(function () {
+    var contactsTable = $("#table-content");
     var surnameField = $("#surname");
     var nameField = $("#name");
     var phoneField = $("#phone");
     var phones = [];
-    var errorSurnameBlock = $("[for='surname']").next().next();
-    var errorNameBlock = $("[for='name']").next().next();
-    var errorPhoneBlock = $("[for='phone']").next().next();
-    var isError = false;
-    var lastRowNumber = 0;
+    var errorSurnameBlock = $("[for='surname']").siblings(".error-message");
+    var errorNameBlock = $("[for='name']").siblings(".error-message");
+    var errorPhoneBlock = $("[for='phone']").siblings(".error-message");
 
     $(".add-button").click(function (e) {
         e.preventDefault();
@@ -20,6 +19,7 @@ $(document).ready(function () {
         var surname = surnameField.val().trim();
         var name = nameField.val().trim();
         var phone = phoneField.val().trim();
+        var isError = false;
 
         function addErrorData(errorBlock, invalidField) {
             errorBlock.text("Необходимо заполнить поле");
@@ -37,14 +37,13 @@ $(document).ready(function () {
 
         if (phone.length === 0) {
             addErrorData(errorPhoneBlock, phoneField);
-        } else if ($.inArray(phone, phones) !== -1) {
+        } else if (phones.indexOf(phone) !== -1) {
             errorPhoneBlock.text("Контакт с таким номером уже существует");
             phoneField.addClass("invalid-field");
             isError = true;
         }
 
         if (isError) {
-            isError = false;
             return;
         }
 
@@ -52,11 +51,9 @@ $(document).ready(function () {
         nameField.val("");
         phoneField.val("");
 
-        ++lastRowNumber;
-
         phones.push(phone);
 
-        var currentRowNumber = lastRowNumber;
+        var currentRowNumber = phones.length;
         var numberCell = $("<td class='width-center row-number'></td>").text(currentRowNumber);
         var surnameCell = $("<td></td>").text(surname);
         var nameCell = $("<td></td>").text(name);
@@ -64,13 +61,11 @@ $(document).ready(function () {
         var buttonCell = $("<td class='width-center'></td>");
         var deleteButton = $("<button class='delete-button' type='submit'>Удалить</button>");
 
-        numberCell.prop("id", currentRowNumber);
-
         buttonCell.append(deleteButton);
 
         var row = $("<tr></tr>");
 
-        $("#table-content").append(row);
+        contactsTable.append(row);
 
         row
             .append(numberCell)
@@ -86,22 +81,20 @@ $(document).ready(function () {
 
             e.stopImmediatePropagation();
 
-            phones = $.grep(phones, function (existingPhone) {
+            phones = phones.filter(function (existingPhone) {
                 return existingPhone !== phone;
-            })
+            });
 
-            if (deletedRowNumber === lastRowNumber) {
-                --lastRowNumber;
+            if (deletedRowNumber === phones.length + 1) {
                 return;
             }
 
-            for (var i = deletedRowNumber + 1; i <= lastRowNumber; ++i) {
-                var currentNumberCell = $("#" + i);
-                currentNumberCell.text(i - 1);
-                currentNumberCell.prop("id", i - 1);
-            }
+            var numberCells = $(".row-number");
 
-            --lastRowNumber;
+            for (var i = deletedRowNumber - 1; i <= phones.length - 1; ++i) {
+                var currentNumberCell = numberCells[i];
+                currentNumberCell.textContent = i + 1;
+            }
         });
     });
 });
