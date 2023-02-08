@@ -27,6 +27,12 @@ $(document).ready(function () {
             isError = true;
         }
 
+        function isPhoneExist(searchedPhone, phonesArray) {
+            return phonesArray.some(function (phone) {
+                return phone.toLowerCase() === searchedPhone.toLowerCase();
+            });
+        }
+
         if (surname.length === 0) {
             addErrorData(errorSurnameBlock, surnameField);
         }
@@ -37,7 +43,7 @@ $(document).ready(function () {
 
         if (phone.length === 0) {
             addErrorData(errorPhoneBlock, phoneField);
-        } else if (phones.indexOf(phone) !== -1) {
+        } else if (isPhoneExist(phone, phones)) {
             errorPhoneBlock.text("Контакт с таким номером уже существует");
             phoneField.addClass("invalid-field");
             isError = true;
@@ -65,14 +71,14 @@ $(document).ready(function () {
 
         var row = $("<tr></tr>");
 
-        contactsTable.append(row);
-
         row
             .append(numberCell)
             .append(surnameCell)
             .append(nameCell)
             .append(phoneCell)
             .append(buttonCell);
+
+        contactsTable.append(row);
 
         deleteButton.click(function (e) {
             var deletedRowNumber = Number(numberCell.text());
@@ -91,7 +97,7 @@ $(document).ready(function () {
 
             var numberCells = $(".row-number");
 
-            for (var i = deletedRowNumber - 1; i <= phones.length - 1; ++i) {
+            for (var i = deletedRowNumber - 1; i < phones.length; ++i) {
                 var currentNumberCell = numberCells[i];
                 currentNumberCell.textContent = i + 1;
             }
