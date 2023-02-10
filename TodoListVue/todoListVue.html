@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script defer src="node_modules/jquery/dist/jquery.js"></script>
+    <script defer src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script defer src="node_modules/vue/dist/vue.js"></script>
+    <script defer src="script.js"></script>
+    <title>Список дел</title>
+</head>
+<body class="px-2 py-2">
+<div id="app">
+    <div class="container">
+        <h1 class="fs-3 mb-4">Список дел</h1>
+        <form @submit.prevent class="fs-6 mb-4">
+            <div class="mb-2 row">
+                <div class="col-12">
+                    <label for="new-task" class="form-label">Введите новую задачу:</label>
+                </div>
+                <div class="col-12 col-sm mb-2">
+                    <div class="row">
+                        <div class="col-12">
+                            <input v-bind:class="{ 'is-invalid': isNewItemInvalid }" v-model="newItemText" type="text"
+                                   class="form-control" id="new-task" name="new-task">
+                        </div>
+                        <div class="add-item-error invalid-feedback col-12">Нужно заполнить поле!</div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-auto row-cols-1">
+                    <button @click="addItem" type="submit" class="btn btn-primary">Добавить задачу в список дел</button>
+                </div>
+            </div>
+        </form>
+        <ul class="list-group list-group-flush list-group-numbered px-0 fs-6">
+            <li v-for="(item, index) in items" :key="item.id"
+                class="list-group-item d-sm-flex align-items-center gap-2 text-success px-0 py-2">
+                <template v-if="!item.isEditing">
+                    <span v-text="item.text" class="task-text text-break"></span>
+                    <div class="row flex-nowrap mt-2 mt-sm-0">
+                        <div class="row-cols-1 col-6 col-sm-auto">
+                            <button @click="editItem(item)" class="btn btn-secondary btn-sm" type="button">
+                                Редактировать
+                            </button>
+                        </div>
+                        <div class="row-cols-1 col-6 col-sm-auto">
+                            <button @click="deleteItem(index)" class="btn btn-danger btn-sm" type="button">
+                                Удалить
+                            </button>
+                        </div>
+                    </div>
+                </template>
+                <template v-else>
+                    <div class="d-sm-flex d-inline-block col-sm col-11 align-items-baseline gap-2 text-success px-0">
+                        <div class="col-sm">
+                            <div class="row">
+                                <div class="col-12">
+                                    <input v-bind:class="{ 'is-invalid': item.isEditedItemInvalid }"
+                                           v-model="item.editedText" class="form-control" type="text">
+                                </div>
+                                <div class="edit-item-error invalid-feedback col-12">Нужно заполнить поле!</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-auto">
+                            <div class="row flex-nowrap mt-2 mt-sm-0">
+                                <div class="row-cols-1 col-6 col-sm-auto">
+                                    <button @click="saveItem(item)" class="btn btn-primary btn-sm" type="button">
+                                        Сохранить
+                                    </button>
+                                </div>
+                                <div class="row-cols-1 col-6 col-sm-auto">
+                                    <button @click="cancelEditing(item)" class="btn btn-secondary btn-sm" type="button">
+                                        Отменить
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
