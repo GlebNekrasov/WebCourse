@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Телефонная книга</title>
+    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="node_modules/jquery/dist/jquery.js"></script>
+    <script defer src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script defer src="node_modules/vue/dist/vue.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body>
+<div id="app">
+    <div class="container">
+        <div class="row d-flex flex-wrap-reverse">
+            <div class="col-12 col-sm-auto overflow-auto">
+                <table class="table table-primary table-striped">
+                    <thead>
+                    <tr>
+                        <th class="text-center">№</th>
+                        <th>Фамилия</th>
+                        <th>Имя</th>
+                        <th>Номер телефона</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody v-for="(item, index) in contacts" :key="item.id" id="table-content">
+                    <tr>
+                        <td v-text="index + 1" class="text-center row-number"></td>
+                        <td v-text="item.surname"></td>
+                        <td v-text="item.name"></td>
+                        <td v-text="item.phone"></td>
+                        <td class="text-center">
+                            <button @click="deleteContact(index)" class="btn btn-sm btn-danger" type="submit">Удалить
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-12 col-sm-auto">
+                <form @submit.prevent class="mb-4">
+                    <div class="mb-3">
+                        <div>
+                            <label for="surname">Фамилия</label>
+                        </div>
+                        <div>
+                            <input v-bind:class="{ 'is-invalid': isSurnameInvalid }" v-model="newContact.surname"
+                                   class="form-control" type="text" placeholder="Иванов" id="surname" name="surname">
+                            <div v-text="errorSurname" class="invalid-feedback" id="surname-error"></div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div>
+                            <label for="name">Имя</label>
+                        </div>
+                        <div>
+                            <input v-bind:class="{ 'is-invalid': isNameInvalid }" v-model="newContact.name"
+                                   class="form-control" type="text" placeholder="Иван" id="name" name="name">
+                            <div v-text="errorName" class="invalid-feedback" id="name-error"></div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div>
+                            <label for="phone">Номер телефона</label>
+                        </div>
+                        <div>
+                            <input v-bind:class="{ 'is-invalid': isPhoneInvalid }" v-model="newContact.phone"
+                                   class="form-control" type="text" placeholder="89131234567" id="phone" name="phone">
+                            <div v-text="errorPhone" class="invalid-feedback" id="phone-error"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <button @click="addContact" class="add-button btn btn-primary" type="submit">Добавить контакт
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
