@@ -13,8 +13,7 @@ new Vue({
             var newTaskText = this.newItemText.trim();
             this.isNewItemInvalid = newTaskText.length === 0;
             var addErrorMessage = $(".add-item-error");
-
-
+            
             if (this.isNewItemInvalid) {
                 addErrorMessage.show();
                 return;
