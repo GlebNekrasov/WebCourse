@@ -16,66 +16,65 @@
     <div class="container">
         <h1 class="fs-3 mb-4">Список дел</h1>
         <form @submit.prevent class="fs-6 mb-4">
-            <div class="mb-2 row">
+            <div class="row">
                 <div class="col-12">
                     <label for="new-task" class="form-label">Введите новую задачу:</label>
                 </div>
-                <div class="col-12 col-sm mb-2">
+                <div class="col-12 col-sm">
                     <div class="row">
                         <div class="col-12">
-                            <input v-bind:class="{ 'is-invalid': isNewItemInvalid }" v-model="newItemText" type="text"
-                                   class="form-control" id="new-task" name="new-task">
+                            <input :class="{ 'is-invalid': isNewItemInvalid }"
+                                   v-model.trim="newItemText"
+                                   type="text"
+                                   class="form-control"
+                                   id="new-task"
+                                   name="new-task">
+                            <div class="invalid-feedback">Нужно заполнить поле!</div>
                         </div>
-                        <div class="add-item-error invalid-feedback col-12">Нужно заполнить поле!</div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-auto row-cols-1">
-                    <button @click="addItem" type="submit" class="btn btn-primary">Добавить задачу в список дел</button>
+                <div class="col-12 col-sm-auto">
+                    <div class="d-flex mt-2 mt-sm-0">
+                        <button @click="addItem" type="submit" class="col btn btn-primary">
+                            Добавить задачу в список дел
+                        </button>
+                    </div>
                 </div>
             </div>
         </form>
         <ul class="list-group list-group-flush list-group-numbered px-0 fs-6">
-            <li v-for="(item, index) in items" :key="item.id"
-                class="list-group-item d-sm-flex align-items-center gap-2 text-success px-0 py-2">
+            <li v-for="(item, index) in items"
+                :key="item.id"
+                class="list-group-item d-flex flex-wrap align-items-center gap-2 text-success px-0 py-2">
                 <template v-if="!item.isEditing">
-                    <span v-text="item.text" class="task-text text-break"></span>
-                    <div class="row flex-nowrap mt-2 mt-sm-0">
-                        <div class="row-cols-1 col-6 col-sm-auto">
-                            <button @click="editItem(item)" class="btn btn-secondary btn-sm" type="button">
+                    <div v-text="item.text" class="col text-break"></div>
+                    <div class="col-12 col-sm-7 col-md-5 col-lg-4 col-xl-3">
+                        <div class="d-flex gap-2">
+                            <button @click="editItem(item)" class="col btn btn-secondary btn-sm" type="button">
                                 Редактировать
                             </button>
-                        </div>
-                        <div class="row-cols-1 col-6 col-sm-auto">
-                            <button @click="deleteItem(index)" class="btn btn-danger btn-sm" type="button">
+                            <button @click="deleteItem(index)" class="col btn btn-danger btn-sm" type="button">
                                 Удалить
                             </button>
                         </div>
                     </div>
                 </template>
                 <template v-else>
-                    <div class="d-sm-flex d-inline-block col-sm col-11 align-items-baseline gap-2 text-success px-0">
-                        <div class="col-sm">
-                            <div class="row">
-                                <div class="col-12">
-                                    <input v-bind:class="{ 'is-invalid': item.isEditedItemInvalid }"
-                                           v-model="item.editedText" class="form-control" type="text">
-                                </div>
-                                <div class="edit-item-error invalid-feedback col-12">Нужно заполнить поле!</div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-auto">
-                            <div class="row flex-nowrap mt-2 mt-sm-0">
-                                <div class="row-cols-1 col-6 col-sm-auto">
-                                    <button @click="saveItem(item)" class="btn btn-primary btn-sm" type="button">
-                                        Сохранить
-                                    </button>
-                                </div>
-                                <div class="row-cols-1 col-6 col-sm-auto">
-                                    <button @click="cancelEditing(item)" class="btn btn-secondary btn-sm" type="button">
-                                        Отменить
-                                    </button>
-                                </div>
-                            </div>
+                    <div class="col">
+                        <input :class="{ 'is-invalid': item.isEditedItemInvalid }"
+                                v-model.trim="item.editedText"
+                                class="form-control"
+                                type="text">
+                        <div class="invalid-feedback">Нужно заполнить поле!</div>
+                    </div>
+                    <div class="col-12 col-sm-7 col-md-5 col-lg-4 col-xl-3">
+                        <div class="d-flex gap-2">
+                            <button @click="saveItem(item)" class="col btn btn-primary btn-sm" type="button">
+                                Сохранить
+                            </button>
+                            <button @click="cancelEditing(item)" class="col btn btn-secondary btn-sm" type="button">
+                                Отменить
+                            </button>
                         </div>
                     </div>
                 </template>

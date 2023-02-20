@@ -5,31 +5,26 @@ new Vue({
         items: [],
         newItemText: "",
         isNewItemInvalid: false,
-        itemId: 1
+        nextItemId: 1
     },
 
     methods: {
         addItem: function () {
-            var newTaskText = this.newItemText.trim();
-            this.isNewItemInvalid = newTaskText.length === 0;
-            var addErrorMessage = $(".add-item-error");
+            this.isNewItemInvalid = this.newItemText.length === 0;
             
             if (this.isNewItemInvalid) {
-                addErrorMessage.show();
                 return;
             }
 
-            addErrorMessage.hide();
-
             this.items.push({
-                id: this.itemId,
-                text: newTaskText,
+                id: this.nextItemId,
+                text: this.newItemText,
                 editedText: "",
                 isEditedItemInvalid: false,
                 isEditing: false
             });
 
-            this.itemId++;
+            this.nextItemId++;
             this.newItemText = "";
         },
 
@@ -43,16 +38,11 @@ new Vue({
         },
 
         saveItem: function (item) {
-            var editedTaskText = item.editedText.trim();
-            item.isEditedItemInvalid = editedTaskText.length === 0;
-            var editErrorMessage = $(".edit-item-error");
+            item.isEditedItemInvalid = item.editedText.length === 0;
 
             if (item.isEditedItemInvalid) {
-                editErrorMessage.show();
                 return;
             }
-
-            editErrorMessage.hide();
 
             item.text = item.editedText;
             item.isEditing = false;
@@ -60,6 +50,7 @@ new Vue({
 
         cancelEditing: function (item) {
             item.isEditing = false;
+            item.isEditedItemInvalid = false;
         }
     }
 });
