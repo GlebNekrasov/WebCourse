@@ -8,66 +8,49 @@ new Vue({
             name: "",
             phone: ""
         },
-        errorSurname: "",
-        errorName: "",
-        errorPhone: "",
+        phoneErrorMessage: "",
         isSurnameInvalid: false,
         isNameInvalid: false,
         isPhoneInvalid: false,
         isNewContactInvalid: false,
-        contactId: 1
+        nextContactId: 1
     },
 
     methods: {
+        isPhoneExist: function (searchedPhone) {
+            return this.contacts.some(function (contact) {
+                return contact.phone.toLowerCase() === searchedPhone.toLowerCase();
+            });
+        },
+
         addContact: function () {
             var contactSurname = this.newContact.surname.trim();
             var contactName = this.newContact.name.trim();
             var contactPhone = this.newContact.phone.trim();
-            var surnameError = $("#surname-error");
-            var nameError = $("#name-error");
-            var phoneError = $("#phone-error");
-            var that = this;
-
-            function addErrorData(errorField) {
-                errorField.show();
-                that.isNewContactInvalid = true;
-            }
-
-            function isPhoneExist(searchedPhone, contactsArray) {
-                return contactsArray.some(function (contact) {
-                    return contact.phone.toLowerCase() === searchedPhone.toLowerCase();
-                });
-            }
 
             if (contactSurname.length === 0) {
                 this.isSurnameInvalid = true;
-                this.errorSurname = "Необходимо заполнить поле";
-                addErrorData(surnameError);
+                this.isNewContactInvalid = true;
             } else {
-                surnameError.hide();
                 this.isSurnameInvalid = false;
             }
 
             if (contactName.length === 0) {
                 this.isNameInvalid = true;
-                this.errorName = "Необходимо заполнить поле";
-                addErrorData(nameError);
+                this.isNewContactInvalid = true;
             } else {
-                nameError.hide();
                 this.isNameInvalid = false;
             }
 
             if (contactPhone.length === 0) {
                 this.isPhoneInvalid = true;
-                this.errorPhone = "Необходимо заполнить поле";
-                addErrorData(phoneError);
-            } else if (isPhoneExist(contactPhone, this.contacts)) {
-                this.isPhoneInvalid = true;
+                this.phoneErrorMessage = "Необходимо заполнить поле";
                 this.isNewContactInvalid = true;
-                this.errorPhone = "Контакт с таким номером уже существует";
-                phoneError.show();
+            } else if (this.isPhoneExist(contactPhone)) {
+                this.isPhoneInvalid = true;
+                this.phoneErrorMessage = "Контакт с таким номером уже существует";
+                this.isNewContactInvalid = true;
             } else {
-                phoneError.hide();
                 this.isPhoneInvalid = false;
             }
 
@@ -77,14 +60,14 @@ new Vue({
             }
 
             this.contacts.push({
-                id: this.contactId,
+                id: this.nextContactId,
                 surname: contactSurname,
                 name: contactName,
                 phone: contactPhone
             });
 
             this.isNewContactInvalid = false;
-            this.contactId++;
+            this.nextContactId++;
             this.newContact.surname = "";
             this.newContact.name = "";
             this.newContact.phone = "";
