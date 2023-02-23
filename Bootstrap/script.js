@@ -15,15 +15,19 @@ $(document).ready(function () {
         newTaskField.removeClass("is-invalid");
         newTaskField.val("");
 
-        var newTask = $("<li class='list-group-item d-sm-flex align-items-center gap-2 text-success px-0 py-2'></li>");
+        var newTask = $("<li class='list-group-item d-flex flex-wrap align-items-center gap-2 text-success px-0 py-2'></li>");
 
         tasksList.append(newTask);
 
+        setViewMode();
+
         function setViewMode() {
-            newTask.html("<span class='col-sm task-text text-break'></span>\
-                <div class='row flex-nowrap col-sm-7 col-md-5 col-lg-4 col-xl-3 mt-2 mt-sm-0'>\
-                    <div class='col-6'><button class='edit-button col-12 btn btn-secondary btn-sm' type='button'>Редактировать</button></div>\
-                    <div class='col-6'><button class='delete-button col-12 btn btn-danger btn-sm' type='button'>Удалить</button></div>\
+            newTask.html("<span class='col task-text text-break'></span>\
+                <div class='col-12 col-sm-7 col-md-5 col-lg-4 col-xl-3'>\
+                    <div class='d-flex gap-2'>\
+                        <button class='edit-button col btn btn-secondary btn-sm' type='button'>Редактировать</button>\
+                        <button class='delete-button col btn btn-danger btn-sm' type='button'>Удалить</button>\
+                    </div>\
                 </div>");
 
             newTask.find(".task-text").text(newTaskText);
@@ -38,17 +42,15 @@ $(document).ready(function () {
         }
 
         function setEditMode() {
-            newTask.html("<div class='d-inline-block col-11 d-sm-flex col-sm align-items-baseline gap-2 text-success px-0'>\
-                    <div class='row col'>\
-                        <div class='col-12'>\
-                            <input class='edit-task form-control' type='text'>\
-                            <div class='invalid-feedback col-12'>Нужно заполнить поле!</div>\
-                        </div>\
-                    </div>\
+            newTask.html("<div class='col'>\
+                    <input class='edit-task form-control' type='text'>\
+                    <div class='invalid-feedback'>Нужно заполнить поле!</div>\
                 </div>\
-                <div class='row flex-nowrap col-sm-7 col-md-5 col-lg-4 col-xl-3 mt-2 mt-sm-0'>\
-                    <div class='col-6'><button class='save-button col-12 btn btn-primary btn-sm' type='button'>Сохранить</button></div>\
-                    <div class='col-6'><button class='cancel-button col-12 btn btn-secondary btn-sm' type='button'>Отменить</button></div>\
+                <div class='col-12 col-sm-7 col-md-5 col-lg-4 col-xl-3'>\
+                    <div class='d-flex gap-2'>\
+                        <button class='save-button col btn btn-primary btn-sm' type='button'>Сохранить</button>\
+                        <button class='cancel-button col btn btn-secondary btn-sm' type='button'>Отменить</button>\
+                    </div>\
                 </div>");
 
             var editTaskField = newTask.find(".edit-task");
@@ -70,7 +72,5 @@ $(document).ready(function () {
                 setViewMode();
             });
         }
-
-        setViewMode();
     });
 });

@@ -1,37 +1,35 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-  <link href="style.css" rel="stylesheet">
-  <script defer src="node_modules/jquery/dist/jquery.js"></script>
-  <script defer src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
-  <script defer src="script.js"></script>
-  <title>Список дел</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script defer src="node_modules/jquery/dist/jquery.js"></script>
+    <script defer src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script defer src="script.js"></script>
+    <title>Список дел</title>
 </head>
 <body>
 <div class="container mt-2">
-  <h1 class="fs-3 mb-4">Список дел</h1>
-  <form class="fs-6 mb-4">
-    <div class="mb-2 row">
-      <div class="col-12">
-        <label for="new-task" class="form-label">Введите новую задачу:</label>
-      </div>
-      <div class="col-12 col-sm mb-2">
-        <div>
-          <div>
-            <input type="text" class="form-control" id="new-task" name="new-task">
-            <div class="invalid-feedback">Нужно заполнить поле!</div>
-          </div>
+    <h1 class="fs-3 mb-4">Список дел</h1>
+    <form class="fs-6 mb-4">
+        <div class="mb-2 row">
+            <div class="col-12">
+                <label for="new-task" class="form-label">Введите новую задачу:</label>
+            </div>
+            <div class="col-12 col-sm mb-2">
+                <input type="text" class="form-control" id="new-task" name="new-task">
+                <div class="invalid-feedback">Нужно заполнить поле!</div>
+            </div>
+            <div class="add-button col-12 col-sm-auto">
+                <div class="d-flex mt-2 mt-sm-0">
+                    <button type="submit" class="col btn btn-primary">Добавить задачу в список дел</button>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="add-button col-12 col-sm-auto row-cols-1">
-        <button type="submit" class="btn btn-primary">Добавить задачу в список дел</button>
-      </div>
-    </div>
-  </form>
-  <ol class="tasks-list list-group list-group-flush list-group-numbered px-0 fs-6"></ol>
+    </form>
+    <ol class="tasks-list list-group list-group-flush list-group-numbered px-0 fs-6"></ol>
 </div>
 </body>
 </html>
